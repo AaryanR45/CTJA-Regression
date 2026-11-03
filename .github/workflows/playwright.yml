@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SITE_URL: ${{ github.event.inputs.site_url}}
+      SITE_URL: ${{ github.event.inputs.base_url || 'https://ctjastg.wpengine.com/' }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
