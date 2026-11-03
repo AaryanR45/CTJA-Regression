@@ -30,7 +30,10 @@ async function captureFullPage(page: any) {
 
   // Resize viewport to fit the full content height (preserve current width)
   const currentViewport = page.viewportSize();
-  await page.setViewportSize({ width: currentViewport?.width ?? 1440, height: Math.ceil(fullHeight) });
+  await page.setViewportSize({
+    width: currentViewport?.width ?? 1440,
+    height: Math.ceil(fullHeight),
+  });
   await page.waitForTimeout(500);
 }
 
@@ -49,6 +52,7 @@ for (const target of pages) {
       {
         animations: "disabled",
         timeout: 30000,
+        maxDiffPixelRatio: 0.04,
       },
     );
   });
