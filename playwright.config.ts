@@ -5,7 +5,7 @@ export default defineConfig({
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 1,
+  retries: process.env.CI ? 1 : 1,
   workers: process.env.CI ? 4 : 2,
   timeout: 60_000,
   reporter: [["html", { open: "never" }], ["list"]],
