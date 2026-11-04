@@ -53,7 +53,7 @@ jobs:
         run: echo "SITE_URL is ${{ env.SITE_URL }}"
 
       - name: Run Playwright tests
-        run: npx playwright test --update-snapshots
+        run: npx playwright test
 
       - name: Upload Snapshots
         if: always()
