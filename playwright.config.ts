@@ -2,13 +2,11 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests",
-  snapshotPathTemplate:
-    "{testDir}/__snapshots__/{projectName}/{testFilePath}/{arg}{-snapshotSuffix}{ext}",
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 1,
-  workers: process.env.CI ? 4 : undefined,
+  workers: process.env.CI ? 4 : 2,
   timeout: 60_000,
   reporter: [["html", { open: "never" }], ["list"]],
   use: {
